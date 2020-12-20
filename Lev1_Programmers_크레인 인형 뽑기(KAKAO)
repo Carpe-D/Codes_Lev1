@@ -1,0 +1,21 @@
+def solution(board,moves):
+    answer=0
+    bucket=[]
+    for i in range(0,len(moves)):
+        j=0
+        while(board[j][moves[i]-1]==0):
+            j=j+1
+            if j>(len(board)-1):
+                break
+        if j>(len(board)-1):
+            continue
+        bucket.append(board[j][moves[i]-1])
+        board[j][moves[i]-1]=0
+        while(len(bucket)>=2):
+            if(bucket[-1]==bucket[-2]):
+                del bucket[-1]
+                del bucket[-1]
+                answer+=2
+            else:
+                break
+    return answer
