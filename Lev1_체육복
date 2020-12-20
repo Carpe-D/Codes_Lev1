@@ -1,0 +1,26 @@
+def solution(n,lost,reserve):
+    answer=0
+    save=0
+    count=0
+    index=0
+    for i in lost:
+        if i in reserve:
+            reserve.remove(i)
+            lost.remove(i)
+        
+    
+    while(index<len(lost)+count):
+        if (lost[index-count] in reserve):
+            reserve.remove(lost[index-count])
+            lost.remove(lost[index-count])
+            count+=1
+        elif (lost[index-count]-1 in reserve):
+            save+=1
+            reserve.remove(lost[index-count]-1)
+        elif (lost[index-count]+1 in reserve):
+            save+=1
+            reserve.remove(lost[index-count]+1)
+                
+        index=index+1
+    answer=n-len(lost)+save
+    return answer
