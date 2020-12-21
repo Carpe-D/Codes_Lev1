@@ -1,0 +1,28 @@
+def solution(answer):
+    First=[1,2,3,4,5]
+    Second=[2,1,2,3,2,4,2,5]
+    Third=[3,3,1,1,2,2,4,4,5,5]
+    new_First=First*(len(answer)//len(First))+First[0:(len(answer)%len(First))]
+    new_Second=Second*(len(answer)//len(Second))+Second[0:(len(answer)%len(Second))]
+    new_Third=Third*(len(answer)//len(Third))+Third[0:(len(answer)%len(Third))]
+    First_Count=0
+    Second_Count=0
+    Third_Count=0
+    for i in range(0,len(answer)):
+        if(answer[i]==new_First[i]):
+            First_Count+=1
+        if(answer[i]==new_Second[i]):
+            Second_Count+=1
+        if(answer[i]==new_Third[i]):
+            Third_Count+=1
+    Count=[First_Count,Second_Count,Third_Count]
+    result=max(First_Count,Second_Count,Third_Count)
+    if (Count.count(result)==1):
+        return ([(Count.index(result))+1])
+    elif(Count.count(result)==3):
+        return [1,2,3]
+    else:
+        save=Count.index(result)
+        Count.remove(Count[save])
+        save2=Count.index(result)
+        return[(save+1),(save2+2)]
