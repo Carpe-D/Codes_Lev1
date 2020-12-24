@@ -1,0 +1,8 @@
+from datetime import date
+
+def solution(a,b):
+    days=["FRI","SAT","SUN","MON","TUE","WED","THU"]
+    day1=date(2016,1,1)
+    day2=date(2016,a,b)
+    difference=(day2-day1).days
+    return days[difference%7]
