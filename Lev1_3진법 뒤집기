@@ -1,0 +1,10 @@
+def solution(n):
+    answer = 0
+    list=[]
+    while(n>2):
+        list.append(n%3)
+        n=n//3
+    list.append(n)
+    for i in range(0,len(list)):
+        answer+=(list[i])*(3**(len(list)-i-1))
+    return answer
