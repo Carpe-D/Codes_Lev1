@@ -1,0 +1,9 @@
+def solution(seoul):
+    answer=''
+    arr="김서방은 x에 있다"
+    for i in range(0,len(seoul)):
+        if seoul[i]=='Kim':
+            i=str(i)
+            return(arr[0:5]+i+arr[6:])
+            
+ 
