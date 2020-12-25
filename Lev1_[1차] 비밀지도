@@ -1,0 +1,23 @@
+def solution(n, arr1, arr2):
+    array1=[[0]*n for i in range(n)]
+    array2=[[0]*n for i in range(n)]
+    answer_map=[[0]*n for i in range(n)]
+    answer=[]
+    sum=''
+    
+    for i in range(0,n):
+        for k in range(0,n):
+            array1[i][n-1-k]=arr1[i]%2
+            array2[i][n-1-k]=arr2[i]%2
+            arr1[i]=arr1[i]//2
+            arr2[i]=arr2[i]//2
+            if(array1[i][n-1-k]==1 or array2[i][n-1-k]==1):
+                answer_map[i][n-1-k]="#"
+            else:
+                answer_map[i][n-1-k]=" "
+    for i in range(0,n):
+        for k in range(0,n):
+            sum+=answer_map[i][k]
+        answer.append(sum)
+        sum=''
+    return answer
