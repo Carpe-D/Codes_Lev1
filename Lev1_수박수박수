@@ -1,0 +1,12 @@
+def solution(n):
+    answer = ''
+    string="수박"
+    if(n==1):
+        return "수"
+    else:
+        mul=n//2
+        if(n%2==0):
+            answer+=(string*mul)
+        else:
+            answer+=((string*mul)+"수")
+    return answer
