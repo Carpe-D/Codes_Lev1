@@ -1,0 +1,9 @@
+def solution(strings, n):
+    answer=[]
+    new_list=[]
+    for i in range(len(strings)):
+        new_list.append(strings[i][n]+strings[i])
+        new_list.sort()
+    for i in range(len(strings)):
+        answer.append(new_list[i][1:])
+    return answer
