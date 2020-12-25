@@ -1,0 +1,9 @@
+def solution(s):
+    answer=''
+    aski_list=[]
+    for i in range(0,len(s)):
+        aski_list.append(ord(s[i]))
+    aski_list.sort(reverse=True)
+    for i in range(0,len(s)):
+        answer+=chr(aski_list[i])
+    return answer
