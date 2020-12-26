@@ -1,0 +1,10 @@
+def solution(n):
+    answer = ''
+    new_list=[]
+    n=str(n)
+    for i in range(0,len(n)):
+        new_list.append(int(n[i]))
+    new_list.sort(reverse=True)
+    for i in range(0,len(new_list)):
+        answer+=str(new_list[i])
+    return int(answer)
