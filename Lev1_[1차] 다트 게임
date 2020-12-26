@@ -1,0 +1,35 @@
+def solution(dartResult):
+    answer=[]
+    sum=0
+    new_list=list(dartResult)
+    final_list=[]
+    for i in range(0,len(new_list)):
+        if (new_list[i]=='1' and new_list[i+1]=='0'):
+            final_list.append('10')
+        
+        elif (new_list[i]=='0' and new_list[i-1]=='1'):
+            continue
+        
+        else:
+            final_list.append(new_list[i])
+    
+    for k in range(1,len(final_list)):
+        if final_list[k]=='S':
+            answer.append(int(final_list[k-1]))
+        elif final_list[k]=="D":
+            answer.append(int(final_list[k-1])**2)
+        elif final_list[k]=="T":
+            answer.append(int(final_list[k-1])**3)
+            
+        if final_list[k]=='*':
+            if len(answer)>=2:
+                answer[-1]=answer[-1]*2
+                answer[-2]=answer[-2]*2
+            else:
+                answer[-1]=answer[-1]*2
+        elif final_list[k]=='#':
+            answer[-1]=answer[-1]*(-1)
+            
+    for i in range(0,len(answer)):
+        sum+=answer[i]
+    return sum
