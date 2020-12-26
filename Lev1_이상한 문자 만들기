@@ -1,0 +1,15 @@
+def solution(s):
+    new_list=[]
+    answer=''
+    index=0
+    for i in range(0,len(s)):
+        new_list.append(s[i])
+        if (index%2==0):
+            new_list[i]=new_list[i].upper()
+        else:
+            new_list[i]=new_list[i].lower()
+        index+=1
+        if(new_list[i]==' '):
+            index=0
+        answer+=new_list[i]
+    return answer
