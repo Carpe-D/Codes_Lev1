@@ -1,0 +1,9 @@
+def solution(n):
+    n=str(n)
+    new_list=[]
+    answer = []
+    for i in range(0,len(n)):
+        new_list.append(int(n[len(n)-1-i]))
+    return new_list
+        
+    
