@@ -1,0 +1,20 @@
+def solution(s,n):
+    new_list=[]
+    answer=''
+    for i in range(0,len(s)):
+        new_list.append(ord(s[i]))
+        if new_list[i]==32:
+            continue
+        else:
+            new_list[i]=new_list[i]+n
+    
+    for k in range(0,len(new_list)):
+        if new_list[k]-n<=90 and new_list[k]>90:
+            new_list[k]=new_list[k]-26
+        elif new_list[k]-n<=122 and new_list[k]>122:
+            new_list[k]=new_list[k]-26
+        new_list[k]=chr(new_list[k])
+        
+    for k in range(0,len(new_list)):
+        answer+=new_list[k]
+    return answer
