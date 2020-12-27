@@ -1,0 +1,56 @@
+def solution(numbers, hand):
+    answer = ''
+    keypad_list=[[1,2,3],[4,5,6],[7,8,9],[-1,0,-2]]
+    left_distance=0
+    right_distance=0
+    left_position=-1
+    right_position=-2
+    left_x_index=0
+    left_y_index=0
+    right_x_index=0
+    right_y_index=0
+    now_x_index=0
+    now_y_index=0
+    for i in range(0,len(numbers)):
+        if numbers[i]==1 or numbers[i]==4 or numbers[i]==7:
+            answer+='L'
+            left_position=numbers[i]
+        elif numbers[i]==3 or numbers[i]==6 or numbers[i]==9:
+            answer+='R'
+            right_position=numbers[i]
+        else:
+            if i==0:
+                if hand=="right":
+                    answer+='R'
+                    right_position=numbers[i]
+                else:
+                    answer+='L'
+                    left_position=numbers[i]
+            else:
+                for j in range(4):
+                    for k in range(3):
+                        if keypad_list[j][k]==left_position:
+                            left_x_index=j
+                            left_y_index=k
+                        if keypad_list[j][k]==numbers[i]:
+                            now_x_index=j
+                            now_y_index=k
+                        if keypad_list[j][k]==right_position:
+                            right_x_index=j
+                            right_y_index=k
+                left_distance=abs(left_x_index-now_x_index)+abs(left_y_index-now_y_index)
+                right_distance=abs(right_x_index-now_x_index)+abs(right_y_index-now_y_index)
+                if(right_distance>left_distance):
+                    answer+='L'
+                    left_position=numbers[i]
+                elif(right_distance<left_distance):
+                    answer+='R'
+                    right_position=numbers[i]
+                else:
+                    if(hand=='right'):
+                        answer+='R'
+                        right_position=numbers[i]
+                    else:
+                        answer+='L'
+                        left_position=numbers[i]
+    return answer
